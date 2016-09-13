@@ -1,0 +1,19 @@
+Assumptions: In file there will not be any syntax named "exit" if there is then we can easily modify server code accordingly.
+
+
+There are 2 subfolders here
+
+1.Client: Contains source code for client and Makefile and runScript perticularly for running only client program
+
+2.Server: Contains source code for server and Makefile and runScript perticularly for running only server program
+
+There is one runScript in SocketProgramming(i.e. master folder) which handles all the runScripts in the subfolder as well as running order
+so in order to run the program as whole you only need to run runScript in master folder.
+
+
+Code Explanation: 
+For server side it will receive first file name from client and server will create newfile for server side and write all the data comming from client into that file. After file transfer is complete 
+and once connection with current client has been terminated server will wait for other clients.
+
+For client side client will first send file name to server and then will read file line by line to avoid memory shortage and then will send each line to server. At the end client will send exit 
+syntax to Server to indicate that file transfer is completed and client is going to terminate connection.

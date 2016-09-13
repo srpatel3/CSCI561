@@ -1,0 +1,6 @@
+#x-terminal-emulator -e  /home/shirish/SocketProgramming/Server/runScript -hold
+#x-terminal-emulator -e  /home/shirish/SocketProgramming/Client/runScript -hold
+#gnome-terminal -e "./Server/runScript" 
+gnome-terminal -e "bash -c ./Server/runScript;bash" 
+#gnome-terminal -e "./Client/runScript" 
+gnome-terminal -e "bash -c ./Client/runScript;bash" 

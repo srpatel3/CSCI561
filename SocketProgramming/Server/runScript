@@ -1,0 +1,7 @@
+cd ./Server
+
+make clean
+
+make
+
+java Server

@@ -1,0 +1,6 @@
+cd ./Client
+make clean
+
+make
+
+java Client
