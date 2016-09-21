@@ -9,7 +9,7 @@ public class Client {
     public static void main(String[] args) throws IOException {
 
         // Make a URL to the web page
-        URL url = new URL("http://stackoverflow.com/questions/6159118/using-java-to-pull-data-from-a-webpage");
+        URL url = new URL("http://stackoverflow.com/");
 
         // Get the input stream through URL Connection
         URLConnection con = url.openConnection();
