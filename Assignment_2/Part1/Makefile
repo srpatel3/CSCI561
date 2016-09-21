@@ -7,7 +7,7 @@ JC = javac
 .java.class:
 	$(JC) $(JFLAGS) $*.java
 
-CLASSES =	\Server.java
+CLASSES =	Server.java
 
 default: classes
 
