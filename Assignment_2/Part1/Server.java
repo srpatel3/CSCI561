@@ -67,9 +67,10 @@ final class HttpRequest implements Runnable{
 		String fileName ="." + tokens.nextToken();
 		//Open and read file
 		FileInputStream fis = null;
-		boolean fileExists = true;
+		boolean fileExists = false;
 		try{
 		fis = new FileInputStream(fileName);
+		fileExists = true;
 		}
 		catch(FileNotFoundException e){
 			fileExists = false;
@@ -78,21 +79,25 @@ final class HttpRequest implements Runnable{
 		String statusLine = null;
 		String contentTypeLine = null;
 		String entityBody = null;
+		String responseLine = null;
 		if(fileExists){
-			statusLine = "OK";
-			contentTypeLine = "Content Type: " +contentType(fileName)+CRLF;
+			statusLine = "HTTP/1.1 200 OK"+CRLF;
+			contentTypeLine = "Content-Type: " +contentType(fileName)+CRLF;
+			responseLine = statusLine+contentTypeLine;
 		}
 		else{
-			statusLine = "404 File Not Found";
-			contentTypeLine = "File Not Found";
+			statusLine = "HTTP/1.1 404 Not Found"+CRLF;
+			contentTypeLine = "";
 			entityBody = "<HTML>" +
 					"<HEAD><TITLE>Not Found</TITLE></HEAD>" +
-					"<BODY>Not Found</BODY></HTML>";
+					"<BODY>Not Found</BODY></HTML>"+CRLF;
+			responseLine = statusLine+entityBody;
 		}
 		//Sending Status line
-		os.writeBytes(statusLine);
+		//os.writeBytes(statusLine);
 		//Sending contentTypeLine
-		os.writeBytes(contentTypeLine);
+		//os.writeBytes(contentTypeLine);
+		os.writeBytes(responseLine);
 		//Sending a blank line to indicate the end of header lines
 		os.writeBytes(CRLF);
 		//Sending the entityBody
@@ -117,15 +122,19 @@ final class HttpRequest implements Runnable{
 				while((bytes = fis1.read(buffer)) != -1 ) {
 						os1.write(buffer, 0, bytes);
 				}
-				
+
 			}
 			//Implementing Content Type method
 			private static String contentType(String fileName){
 				if(fileName.endsWith("html")||fileName.endsWith("htm"))
 					return "text/html";
+				else if(fileName.endsWith("jpeg")||fileName.endsWith("jpg"))
+					return "jpeg/jpg";
+				else if(fileName.endsWith("pdf"))
+					return "pdf";
 				else
 					return "application/octet-stream";
-					
+
 			}
 
 }
