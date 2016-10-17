@@ -1,0 +1,6 @@
+#x-terminal-emulator -e  /home/shirish/PA03Server/src/runScript -hold
+#x-terminal-emulator -e  /home/shirish/PA03Client/src/runScript -hold
+#gnome-terminal -e "./Server/runScript" 
+gnome-terminal -e "bash -c /home/shirish/workspace/PA03Server/src/runScript;bash" 
+#gnome-terminal -e "/home/shirish/PA03Client/src/runScript" 
+gnome-terminal -e "bash -c /home/shirish/workspace/PA03Client/src/runScript;bash" 

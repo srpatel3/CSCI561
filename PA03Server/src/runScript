@@ -1,0 +1,7 @@
+cd /home/shirish/workspace/PA03Server/src
+
+make clean
+
+make
+
+java PingServer 50000

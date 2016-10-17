@@ -1,0 +1,7 @@
+cd /home/shirish/workspace/PA03Client/src
+
+make clean
+
+make
+
+java PingClient localhost 6789

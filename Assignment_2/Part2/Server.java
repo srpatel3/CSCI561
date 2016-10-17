@@ -9,7 +9,7 @@ public class Server{
 		int port = 6789;
 		//Establish the listen socket
 		ServerSocket welcomeSocket = new ServerSocket(port);
-		
+
 		//Process Http request in an infinite loop
 		while(true){
 			//Listen for a TCP connection request
@@ -61,12 +61,9 @@ final class HttpRequest implements Runnable{
                     + System.getProperty("line.separator") + "-------");
             System.out.println(new String(Byte, 0, length));
             String requestLine =new String(Byte);
-            //StringTokenizer tokens = new StringTokenizer(requestLine);
-            //tokens.nextToken();
             String hostName=null;
             String[] finalHostName = requestLine.split(":");
             for(int i=0;i<finalHostName.length;i++){
-            	//System.out.println("Value of Split "+i +" is "+finalHostName[i]);
             	if(finalHostName[i].contains("Host")){
             		hostName = new String(finalHostName[i+1]);
             		break;
