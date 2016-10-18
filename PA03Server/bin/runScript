@@ -4,4 +4,4 @@ make clean
 
 make
 
-java PingServer 6789
+java PingServer 50000

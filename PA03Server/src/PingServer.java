@@ -17,7 +17,7 @@ public class PingServer{
 	int port = Integer.parseInt(args[0]);
 	// Create random number generator for use in simulating 
 	// packet loss and network delay.
-	System.out.println("Server started at: 6789\n");
+	//System.out.println("Server started at: 6789\n");
 	Random random = new Random();
 	// Create a datagram socket for receiving and sending UDP packets
 	// through the port specified on the command line.
